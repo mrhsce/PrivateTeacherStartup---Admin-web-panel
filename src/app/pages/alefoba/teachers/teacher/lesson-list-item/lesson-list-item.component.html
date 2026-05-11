@@ -1,0 +1,9 @@
+<div style="display: flex">
+  <div class="iy-regular" style="margin: 0 auto">
+    {{lesson.Title}}
+  </div>
+
+      <nb-select [selected]='lesson.Level.Id' (selectedChange)="onLessonLevelChanged($event)">
+        <nb-option *ngFor="let level of levels" [value]='level.Id'>{{level.Title}}</nb-option>
+      </nb-select>
+</div>

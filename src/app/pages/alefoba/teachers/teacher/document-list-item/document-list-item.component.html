@@ -1,0 +1,17 @@
+<div style="display: flex">
+    <div class="iy-regular" style="margin: 0 auto">
+        {{document.Id}}
+    </div>
+    <div class="iy-regular" style="margin: 0 auto">
+        {{document.Title}}
+    </div>
+    <div class="iy-regular" style="margin: 0 auto">
+        {{document.DocType.Title}}
+    </div>
+
+    <div class="list-buttons">
+        <button style="margin-right: 10px;" (click)="onViewDocument()" class="btn-demo list-button" nbButton status="success">دانلود</button>
+        <button style="margin-right: 10px;" (click)="onDocumentDelete()" class="btn-demo list-button" nbButton status="danger">حذف</button>
+    </div>
+
+</div>

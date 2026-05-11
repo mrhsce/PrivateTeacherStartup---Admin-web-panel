@@ -1,0 +1,11 @@
+:root {
+    /*main volors*/
+    --flat-sunflower-color:#f1c40f;
+    --flat-nephritis-color:#27ae60;
+    --flat-wetasphalt-color:#7f8c8d;
+
+    /*requests*/
+    --waitingforteacher-request-color: var(--flat-sunflower-color);
+    --accepted-request-color: var(--flat-nephritis-color);
+    --rejected-request-color: var(--flat-wetasphalt-color);
+}

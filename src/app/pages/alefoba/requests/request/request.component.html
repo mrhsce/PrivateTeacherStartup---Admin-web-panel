@@ -1,0 +1,27 @@
+<div *ngIf='listStatus === LIST_LOADED'>
+
+  <nb-card >
+    <nb-card-header>لیست معلمین واجد شرایط</nb-card-header>
+    <nb-list>
+      <nb-list-item *ngFor='let o of list'>
+        <ngx-teacher-list-item (remove)="removeTeacherFromRequest(o)"
+        [teacher]="o">
+        </ngx-teacher-list-item>
+      </nb-list-item>
+    </nb-list>
+  </nb-card>
+</div>
+
+<nb-card *ngIf='listStatus === LIST_LOADING' [nbSpinner]="true" nbSpinnerStatus="success" nbSpinnerSize="xxlarge">
+  <nb-card-body>
+    لطفا تا بارگزاری لیست منتظر بمانید
+  </nb-card-body>
+</nb-card>
+
+<nb-card *ngIf='listStatus === LIST_ERROR'>
+  <nb-card-header><p align="center" class="message-paragraph error-message">خطا در دریافت لیست! <br> لطفا صفحه را رفرش کنید.</p></nb-card-header>
+</nb-card>
+
+<nb-card *ngIf='listStatus === LIST_EMPTY'>
+  <nb-card-header><p align="center" class="message-paragraph">هیچ معلم واجد شرایطی برای درخواست وجود ندارد.</p></nb-card-header>
+</nb-card>

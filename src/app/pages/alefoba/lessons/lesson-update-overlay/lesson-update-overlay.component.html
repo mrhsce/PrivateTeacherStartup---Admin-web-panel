@@ -1,0 +1,24 @@
+<!--<ngx-lesson-update-overlay-content (onCancel)="cancel()" (onSubmit)="submit($event)"></ngx-lesson-update-overlay-content>-->
+<nb-card>
+    <nb-card-header>
+        <button (click)="cancel()" nbButton shape="round"  status="danger" size="tiny" style="height: 30px; width: 30px">
+            <i style="font-size: 40px; margin-top: -11px; margin-right: 1px;" class="nb-close-circled"></i></button>
+        {{!lesson.Id ? 'ایجاد درس جدید' : 'ویرایش درس'}}
+    </nb-card-header>
+    <nb-card-body>
+        <div style="display: flex; flex-direction: row; align-items: center;">
+            <div class="iy-bold" style="flex: 1; margin-left: 20px">عنوان درس:</div>
+            <input style="flex: 1.5" nbInput [(ngModel)]="lesson.Title" type='text' placeholder='مثال: ریاضی دوم ابتدایی'>
+        </div>
+        <div style="margin-top: 10px; display: flex; flex-direction: row; align-items: center;">
+            <div class="iy-bold" style="flex: 1; margin-left: 20px">ضریب درس:</div>
+            <input style="flex: 1.5" nbInput [(ngModel)]="lesson.Factor" type='number' placeholder='مقدار از ۱ تا ۳'>
+        </div>
+        <textarea style="margin-top: 10px; width: 100%;" nbInput rows = "3" [(ngModel)]="lesson.Comments" type='text' placeholder='ملاحظات، در صورت وجود اینجا بنویسید.'>
+    </textarea>
+
+    </nb-card-body>
+    <nb-card-footer style="display: flex; justify-content: center;">
+        <button nbButton [disabled]="!(lesson.Title && lesson.Factor)" class="submit-button" status="success" (click)="submit()">ثبت</button>
+    </nb-card-footer>
+</nb-card>

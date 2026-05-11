@@ -1,0 +1,35 @@
+<div *ngIf='listStatus === LIST_LOADED'>
+
+  <nb-card >
+    <nb-card-header>لیست گزارش‌ها</nb-card-header>
+    <nb-accordion>
+      <nb-accordion-item *ngFor='let object of list; let i = index'>
+        <nb-accordion-item-header>
+        <ngx-report-list-item style="width: 100%;" [report]='object'>
+        </ngx-report-list-item>
+        </nb-accordion-item-header>
+        <nb-accordion-item-body>
+          <ngx-report-detail-list-item style="width: 100%;" [report]='object'>
+          </ngx-report-detail-list-item>
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+    </nb-accordion>
+  </nb-card>
+</div>
+
+<nb-card *ngIf='listStatus === LIST_LOADING' [nbSpinner]="true" nbSpinnerStatus="success" nbSpinnerSize="xxlarge">
+  <nb-card-body>
+    لطفا تا دریافت لیست شکیبا باشید.
+  </nb-card-body>
+</nb-card>
+
+<nb-card *ngIf='listStatus === LIST_ERROR'>
+  <nb-card-header><p align="center" class="message-paragraph error-message">خطا در دریافت لیست! <br> لطفا صفحه را رفرش کنید.</p></nb-card-header>
+</nb-card>
+
+<nb-card *ngIf='listStatus === LIST_EMPTY'>
+  <nb-card-header><p align="center" class="message-paragraph">هیچ گزارشی وجود ندارد.</p></nb-card-header>
+</nb-card>
+
+
+<!--<ngx-floating-add-button (onAddPressed)='showTeacherCreationOverlay()'></ngx-floating-add-button>-->

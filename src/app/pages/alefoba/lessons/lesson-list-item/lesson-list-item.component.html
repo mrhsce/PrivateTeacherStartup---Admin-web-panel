@@ -1,0 +1,21 @@
+<div style="display: flex">
+  <div  style="margin: 0 auto">
+    {{lesson.Id}}
+  </div>
+  <div class="iy-regular" style="margin: 0 auto">
+    {{lesson.Title}}
+  </div>
+
+  <div style="margin: 0 auto">
+    {{lesson.Factor}}
+  </div>
+
+  <div class="iy-regular" style="margin: 0 auto">
+    {{lesson.Comments}}
+  </div>
+
+  <div class="list-buttons">
+    <button (click)="onUpdatePressed()" class="btn-demo list-button" nbButton status="warning">ویرایش</button>
+    <button (click)="onDeletePressed()" class="btn-demo list-button" nbButton status="danger">حذف درس</button>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<!--<ngx-lesson-update-overlay-content (onCancel)="cancel()" (onSubmit)="submit($event)"></ngx-lesson-update-overlay-content>-->
+<nb-card>
+    <nb-card-header>
+        <button (click)="cancel()" nbButton shape="round"  status="danger" size="tiny" style="height: 30px; width: 30px">
+            <i style="font-size: 40px; margin-top: -11px; margin-right: 1px;" class="nb-close-circled"></i></button>
+        {{!teacher.Id ? 'ایجاد معلم جدید' : 'ویرایش معلم'}}
+    </nb-card-header>
+    <nb-card-body>
+        <div style="display: flex; flex-direction: row; align-items: center;">
+            <div class="iy-bold" style="flex: 1; margin-left: 20px">شماره موبایل:</div>
+            <input maxlength="11" style="flex: 1.5" nbInput [(ngModel)]="teacher.PhoneNumber" type='tel' placeholder='مثال: ۰۹۱۲۲۲۲۲۲۲۲'>
+        </div>
+        <div style="margin-top: 10px; display: flex; flex-direction: row; align-items: center;">
+            <div class="iy-bold" style="flex: 1; margin-left: 20px">نام:</div>
+            <input style="flex: 1.5" nbInput [(ngModel)]="teacher.Name" type='text' placeholder='مثال: محمد'>
+        </div>
+        <div style="margin-top: 10px; display: flex; flex-direction: row; align-items: center;">
+            <div class="iy-bold" style="flex: 1; margin-left: 20px">نام خانوادگی:</div>
+            <input style="flex: 1.5" nbInput [(ngModel)]="teacher.Family" type='text' placeholder='مثال: ;کریمی'>
+        </div>
+        <div style="margin-top: 10px; display: flex; flex-direction: row; align-items: center;">
+            <div class="iy-bold" style="flex: 1; margin-left: 20px">جنسیت:</div>
+            <nb-select placeholder="اتتخاب کنید" style="flex: 2.5" [selected]='teacher.Gender ? "1" : "0"' (selectedChange)="teacher.Gender = $event">
+                <nb-option value='0'>زن</nb-option>
+                <nb-option value='1'>مرد</nb-option>
+            </nb-select>
+        </div>
+        <div style="margin-top: 10px; display: flex; flex-direction: row; align-items: center;">
+            <div class="iy-bold" style="flex: 1; margin-left: 20px">رشته تحصیلی:</div>
+            <input style="flex: 1.5" nbInput [(ngModel)]="teacher.FieldOfStudy" type='text' placeholder='مثال: مهندسی نرم‌افزار'>
+        </div>
+        <div style="margin-top: 10px; display: flex; flex-direction: row; align-items: center;">
+            <div class="iy-bold" style="flex: 1; margin-left: 20px">مدرک تحصیلی:</div>
+            <input style="flex: 1.5" nbInput [(ngModel)]="teacher.Degree" type='text' placeholder='مثال: کارشناسی ارشد'>
+        </div>
+        <div style="margin-top: 10px; display: flex; flex-direction: row; align-items: center;">
+            <div class="iy-bold" style="flex: 1; margin-left: 20px">ایمیل:</div>
+            <input style="flex: 1.5" nbInput [(ngModel)]="teacher.Email" type='text' placeholder='مثال: mymail@gmail.com'>
+        </div>
+
+    </nb-card-body>
+    <nb-card-footer style="display: flex; justify-content: center;">
+        <button nbButton [disabled]="!(teacher.PhoneNumber && teacher.PhoneNumber.length == 11 && teacher.Name && teacher.Family)" class="submit-button" status="success" (click)="submit()">ثبت</button>
+    </nb-card-footer>
+</nb-card>

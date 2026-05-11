@@ -1,0 +1,29 @@
+<!--<ngx-lesson-update-overlay-content (onCancel)="cancel()" (onSubmit)="submit($event)"></ngx-lesson-update-overlay-content>-->
+<nb-card>
+    <nb-card-header>
+        <button (click)="cancel()" nbButton shape="round"  status="danger" size="tiny" style="height: 30px; width: 30px">
+            <i style="font-size: 40px; margin-top: -11px; margin-right: 1px;" class="nb-close-circled"></i></button>
+        {{'آپلود مدرک'}}
+    </nb-card-header>
+    <nb-card-body style="display: flex; flex-direction: column; align-items: flex-start;">
+        <div style="display: flex; flex-direction: row; align-items: flex-start;">
+            <div class="iy-bold" style="flex: 1; margin-left: 20px">عنوان مدرک:</div>
+            <input maxlength="30" style="flex: 1.5" nbInput [(ngModel)]="imageName" type='text' placeholder='مثال: شناسنامه'>
+        </div>
+        <div style="margin-top: 10px; display: flex; flex-direction: row; align-items: center;">
+            <div class="iy-bold" style="flex: 1; margin-left: 20px">فایل عکس:</div>
+        <input type="file" (change)="openFile($event)" >
+        </div>
+
+        <div style="margin-top: 10px; display: flex; flex-direction: row; align-items: center;">
+            <div class="iy-bold" style="flex: 1; margin-left: 20px">نوع فایل:</div>
+        <nb-select style="width: 200px;" [selected]='docType' (selectedChange)="onDocTypeChanged($event)">
+            <nb-option *ngFor="let docType of docTypes" [value]='docType.Id'>{{docType.Title}}</nb-option>
+        </nb-select>
+        </div>
+
+    </nb-card-body>
+    <nb-card-footer style="display: flex; justify-content: center;">
+        <button nbButton [disabled]="!(imageName && file && docType)" class="submit-button" status="success" (click)="addImage()">ثبت</button>
+    </nb-card-footer>
+</nb-card>

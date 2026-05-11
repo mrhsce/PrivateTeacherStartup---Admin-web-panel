@@ -1,0 +1,32 @@
+<div *ngIf='teacherListStatus === LIST_LOADED'>
+
+  <nb-card >
+    <nb-card-header>لیست معلمین</nb-card-header>
+    <nb-list>
+      <nb-list-item *ngFor='let teacher of teacherList; let i = index'>
+        <ngx-teacher-list-item (ban)="banTeacher(teacher)"
+                     (activate)="activateTeacher(teacher)"
+                     (deactivate)="deactivateTeacher(teacher)"
+                               (edit)="showUpdateOverlay(teacher)"
+                               [teacher]="teacher"></ngx-teacher-list-item>
+      </nb-list-item>
+    </nb-list>
+  </nb-card>
+</div>
+
+<nb-card *ngIf='teacherListStatus === LIST_LOADING' [nbSpinner]="true" nbSpinnerStatus="success" nbSpinnerSize="xxlarge">
+  <nb-card-body>
+    لطفا تا دریافت لیست شکیبا باشید.
+  </nb-card-body>
+</nb-card>
+
+<nb-card *ngIf='teacherListStatus === LIST_ERROR'>
+  <nb-card-header><p align="center" class="message-paragraph error-message">Error loading teacher list! <br> Please reload the page.</p></nb-card-header>
+</nb-card>
+
+<nb-card *ngIf='teacherListStatus === LIST_EMPTY'>
+  <nb-card-header><p align="center" class="message-paragraph">هیچ معلمی وجود ندارد.</p></nb-card-header>
+</nb-card>
+
+
+<ngx-floating-add-button (onAddPressed)='showUpdateOverlay()'></ngx-floating-add-button>

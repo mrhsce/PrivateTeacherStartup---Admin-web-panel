@@ -1,0 +1,75 @@
+<div style="display: flex">
+  <div class="iy-regular" style="margin: 0 auto">
+    {{teacher.Id}}
+  </div>
+  <div class="iy-regular" style="margin: 0 auto">
+    {{teacher.Name}}
+  </div>
+  <div class="iy-regular" style="margin: 0 auto">
+    {{teacher.Family}}
+  </div>
+</div>
+
+    <nb-tabset fullWidth>
+
+      <nb-tab tabTitle="لیست مدارک">
+        <nb-card *ngIf='documentListStatus === LIST_LOADING' [nbSpinner]="true" nbSpinnerStatus="success" nbSpinnerSize="xxlarge">
+          <nb-card-body>
+            لطفا تا دریافت لیست مدارک منتظر بمانید
+          </nb-card-body>
+        </nb-card>
+
+        <nb-card *ngIf='documentListStatus === LIST_ERROR'>
+          <nb-card-header><p align="center" class="message-paragraph error-message">خطا در دریافت لیست مدارک! <br> لطفا صفحه را رفرش کنید.</p></nb-card-header>
+        </nb-card>
+
+        <div *ngIf='documentListStatus === LIST_LOADED'>
+          <nb-card >
+            <nb-list>
+              <nb-list-item *ngFor='let o of documentList'>
+                <ngx-document-list-item
+                        [document]="o" (deleteDocument)="deleteDocument(o.Id)" (viewDocument)="downloadDocument(o)">
+                </ngx-document-list-item>
+              </nb-list-item>
+            </nb-list>
+          </nb-card>
+        </div>
+
+        <ngx-floating-add-button (onAddPressed)='showDocumentAddOverlay()'></ngx-floating-add-button>
+      </nb-tab>
+
+      <nb-tab tabTitle="لیست دروس">
+        <div *ngIf='listStatus === LIST_LOADED'>
+
+          <nb-card >
+            <nb-card-header>لیست دروس</nb-card-header>
+            <nb-list>
+              <nb-list-item *ngFor='let o of list'>
+                <ngx-lesson-list-item
+                        [lesson]="o" [levels]="levelsList" (levelChanged)="changeTeacherLessonLevel(route.snapshot.params['id'], o.Id, $event)">
+                </ngx-lesson-list-item>
+              </nb-list-item>
+            </nb-list>
+          </nb-card>
+        </div>
+
+        <nb-card *ngIf='listStatus === LIST_LOADING' [nbSpinner]="true" nbSpinnerStatus="success" nbSpinnerSize="xxlarge">
+          <nb-card-body>
+            لطفا تا دریافت لیست دروس منتظر بمانید
+          </nb-card-body>
+        </nb-card>
+
+        <nb-card *ngIf='listStatus === LIST_ERROR'>
+          <nb-card-header><p align="center" class="message-paragraph error-message">خطا در دریافت لیست دروس! <br> لطفا صفحه را رفرش کنید.</p></nb-card-header>
+        </nb-card>
+
+        <nb-card *ngIf='listStatus === LIST_EMPTY'>
+          <nb-card-header><p align="center" class="message-paragraph">معلم هیچ درسی را ندریس نمی کند.</p></nb-card-header>
+        </nb-card>
+      </nb-tab>
+
+      <nb-tab tabTitle="اعلان‌ها">
+        <span>Content #3</span>
+      </nb-tab>
+
+    </nb-tabset>

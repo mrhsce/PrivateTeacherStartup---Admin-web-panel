@@ -1,0 +1,19 @@
+<div style="display: flex">
+    <div class="iy-regular" style="margin: 0 auto">
+        {{student.Name}}
+    </div>
+    <div class="iy-regular" style="margin: 0 auto">
+        {{student.Family}}
+    </div>
+
+    <div class="list-buttons">
+
+        <button disabled (click)="goToStudentPage()" class="btn-demo list-button" nbButton status="info">مشاهده وضعیت</button>
+
+        <button *ngIf="student.Status.Id == 2"
+                (click)="onActivatePressed()" class="btn-demo list-button" nbButton status="success">فعالسازی</button>
+        <button *ngIf="student.Status.Id == 1"
+                (click)="onBanPressed()" class="btn-demo list-button" nbButton status="danger">تعلیق</button>
+
+    </div>
+</div>

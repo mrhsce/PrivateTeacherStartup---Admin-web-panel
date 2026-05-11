@@ -1,0 +1,36 @@
+<div style="display: flex; flex-direction: row; justify-content: flex-start; align-items: center; ">
+    <div class="iy-regular" style="flex: 1; text-align: center;">
+        {{request.Status.Name}}
+    </div>
+
+    <div class="iy-regular" style="flex: 1; text-align: center;">
+        {{request.Id}}
+    </div>
+    <div class="iy-regular" style="flex: 1; text-align: center;">
+        {{request.Lesson.Title}}
+    </div>
+
+    <div class="iy-regular" style="flex: 1; text-align: center;">
+        {{request.District}}
+    </div>
+
+    <div class="iy-regular" style="flex: 1; text-align: center;">
+        {{request.StartTime}}
+    </div>
+
+    <div class="iy-regular" style="flex: 1; text-align: center;">
+        {{request.Duration.Title}}
+    </div>
+
+    <div class="iy-regular" style="flex: 1; text-align: center;">
+        {{request.Price}}
+    </div>
+
+    <div class="list-buttons">
+
+        <button (click)="goToRequestPage()" class="btn-demo list-button" nbButton status="info">مشاهده وضعیت</button>
+
+        <button (click)="onDisablePressed()" class="btn-demo list-button" nbButton status="danger">غیرفعالسازی</button>
+
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div *ngIf='listStatus === LIST_LOADED'>
+
+  <nb-card >
+    <nb-card-header>لیست دروس</nb-card-header>
+    <nb-list>
+      <nb-list-item *ngFor='let o of list'>
+        <ngx-lesson-list-item
+        [lesson]="o" [levels]="levelsList" (levelChanged)="changeTeacherLessonLevel(route.snapshot.params['id'], o.Id, $event)">
+        </ngx-lesson-list-item>
+      </nb-list-item>
+    </nb-list>
+  </nb-card>
+</div>
+
+<nb-card *ngIf='listStatus === LIST_LOADING' [nbSpinner]="true" nbSpinnerStatus="success" nbSpinnerSize="xxlarge">
+  <nb-card-body>
+    Please wait while teacher list is being loaded.
+  </nb-card-body>
+</nb-card>
+
+<nb-card *ngIf='listStatus === LIST_ERROR'>
+  <nb-card-header><p align="center" class="message-paragraph error-message">Error loading teacher list! <br> Please reload the page.</p></nb-card-header>
+</nb-card>
+
+<nb-card *ngIf='listStatus === LIST_EMPTY'>
+  <nb-card-header><p align="center" class="message-paragraph">Teacher list is empty.</p></nb-card-header>
+</nb-card>

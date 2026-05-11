@@ -1,0 +1,31 @@
+<div *ngIf='listStatus === LIST_LOADED'>
+
+  <nb-card >
+    <nb-card-header>لیست درخواست‌ها</nb-card-header>
+    <nb-list>
+      <nb-list-item *ngFor='let object of list; let i = index' [style.background-color]="object.Status.Id == 24 ?
+       'var(--waitingforteacher-request-color)' : object.Status.Id == 25 ?
+        'var(--accepted-request-color)' : 'var(--rejected-request-color)'">
+        <ngx-request-list-item (disable)="disableRequest(object)" [request]='object'>
+        </ngx-request-list-item>
+      </nb-list-item>
+    </nb-list>
+  </nb-card>
+</div>
+
+<nb-card *ngIf='listStatus === LIST_LOADING' [nbSpinner]="true" nbSpinnerStatus="success" nbSpinnerSize="xxlarge">
+  <nb-card-body>
+    لطفا تا دریافت لیست شکیبا باشید.
+  </nb-card-body>
+</nb-card>
+
+<nb-card *ngIf='listStatus === LIST_ERROR'>
+  <nb-card-header><p align="center" class="message-paragraph error-message">خطا در دریافت لیست! <br> لطفا صفحه را رفرش کنید.</p></nb-card-header>
+</nb-card>
+
+<nb-card *ngIf='listStatus === LIST_EMPTY'>
+  <nb-card-header><p align="center" class="message-paragraph">هیچ درخواستی وجود ندارد.</p></nb-card-header>
+</nb-card>
+
+
+<!--<ngx-floating-add-button (onAddPressed)='showTeacherCreationOverlay()'></ngx-floating-add-button>-->

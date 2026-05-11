@@ -1,0 +1,230 @@
+@font-face {
+  font-family: Vazir;
+  src: url('./fonts/Vazir-FD.eot');
+  src: url('./fonts/Vazir-FD.eot?#iefix') format('embedded-opentype'),
+       url('./fonts/Vazir-FD.woff') format('woff'),
+       url('./fonts/Vazir-FD.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+    font-family: iy-regular;
+    src: url('./fonts/IRANYekanRegular(FaNum).ttf');
+}
+
+@font-face {
+    font-family: iy-bold;
+    src: url('./fonts/IRANYekanBold(FaNum).ttf');
+}
+
+@font-face {
+    font-family: iy-extra-bold;
+    src: url('./fonts/IRANYekanExtraBold.ttf');
+}
+
+@font-face {
+    font-family: iy-black;
+    src: url('./fonts/IRANYekanBlack.ttf');
+}
+
+@font-face {
+    font-family: iy-extra-black;
+    src: url('./fonts/IRANYekanExtraBlack.ttf');
+}
+      
+body {
+    direction: rtl;
+
+}
+
+div {
+    direction: rtl;
+}
+
+input, input::-webkit-input-placeholder, ‌‌‌textarea, ‌‌‌textarea::-webkit-input-placeholder, nb-option {
+    font-family: iy-regular !important;
+}
+
+.logo {
+    font-family: iy-extra-black !important;
+}
+
+.menu-title {
+    font-family: iy-black !important;
+    font-size: 18px;
+}
+
+.menu-icon {
+    width: 30px !important;
+    height: 30px !important;
+}
+
+.iy-regular{
+    font-family: iy-regular !important;
+}
+
+.iy-bold{
+    font-family: iy-bold !important;
+}
+
+.nb-theme-cosmic nb-menu {
+  font-family: 'vazir', tahoma !important;
+  text-align:right !important;
+}
+
+button{
+    font-family: iy-regular !important;
+}
+
+.logo {
+    font-family: vazir;
+}
+
+nb-card-header {
+    font-family: iy-extra-bold !important;
+    text-align: right;
+}
+
+nb-action.control-item {
+    display: none !important; /**topbar icons**/
+}
+nb-action.toggle-layout {
+    display: none; /**topbar layout **/
+}
+/*** table hide **/
+table tr td:first-child{
+  display:none;
+}
+
+table tr th:first-child{
+  display:none;
+}
+/*** end table hide **/
+span.ai-indicator {
+    font-family: 'vazir', tahoma;
+    text-align: right;
+    font-weight: 900;
+}
+
+.btn-group.btn-divided-group.btn-outline-divided-group.btn-group-full-width {
+    text-align: center;
+}
+
+h5.text-heading {
+    font-family: vazir;
+    text-align: right;
+}
+
+.header {
+    text-align: right;
+}
+
+.row.status {
+    margin: 12px;
+    padding: 0px 0px 13px 0;
+    border-bottom: 1px solid rgba(40, 37, 89, 0.6);
+}
+
+span.month {
+    font-family: vazir !important;
+    font-size: 14px !important;
+}
+
+.table-header {
+    text-align: right !important;
+    font-family: vazir !important;
+}
+
+.subtitle {
+    font-family: vazir !important;
+}
+
+[_nghost-c3] .links {
+    display: none;
+}
+
+a.forgot-password {
+    display: none;
+}
+
+nb-action.toggle-layout {
+    display: none !important;
+}
+
+.videoContainer {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    //padding: 20px;
+    border-radius: 5px;
+    background-attachment: scroll;
+    overflow: hidden;
+        z-index: -10000;
+}
+.videoContainer video {
+    min-width: 100%;
+    min-height: 100%;
+    position: relative;
+    z-index: 1;
+}
+.videoContainer .overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+    background: rgba(0,0,0,.5);
+    opacity: 0.5;
+}
+
+.nb-theme-cosmic nb-layout .layout .layout-container .content nb-layout-footer nav {
+    background-color: #00162bba !important;
+    border-top: 0px !important;
+}
+
+.nb-theme-cosmic ng2-smart-table tbody tr:nth-child(2n) {
+    background-color: rgba(40, 37, 89, 0.6) !important;
+}
+
+.nb-theme-cosmic ng2-smart-table tbody tr.selected, .nb-theme-cosmic ng2-smart-table tbody tr:hover {
+    background: #3d3780 !important;
+}
+.nb-theme-cosmic ng2-smart-table thead tr {
+    background: rgba(40, 37, 89, 0.6) !important;
+}
+ng2-st-column-title {
+    text-align: right;
+}
+
+span.created-by {
+    font-family: vazir;
+    color: #fff;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.banner-picture {
+    height: 300px;
+    background-size: cover;
+}
+
+.red-title {
+    text-align: right;
+    width: initial;
+    background-color: #D32F2F;
+    display: table;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: vazir;
+    color: #fff;
+    font-size: 20px;
+    margin: 10px 0px 7px 0px;
+}
+
+.p-description {
+    text-align: justify;
+    line-height: normal;
+    font-family: vazir;
+    margin: 10px 0;
+}

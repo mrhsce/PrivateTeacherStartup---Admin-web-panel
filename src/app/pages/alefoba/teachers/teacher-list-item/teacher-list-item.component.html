@@ -1,0 +1,26 @@
+<div style="display: flex">
+    <div class="iy-regular" style="margin: 0 auto">
+        {{teacher.Id}}
+    </div>
+    <div class="iy-regular" style="margin: 0 auto">
+        {{teacher.Name}}
+    </div>
+    <div class="iy-regular" style="margin: 0 auto">
+        {{teacher.Family}}
+    </div>
+
+    <div class="list-buttons">
+
+        <button (click)="goToTeacherPage()" class="btn-demo list-button" nbButton status="info">مدیریت</button>
+
+        <button (click)="goToEditPage()" class="btn-demo list-button" nbButton status="primary">ویرایش</button>
+
+        <button *ngIf="teacher.Status.Id == 3 || teacher.Status.Id == 5"
+                (click)="onActivatePressed()" class="btn-demo list-button" nbButton status="warning">فعالسازی</button>
+        <button *ngIf="teacher.Status.Id == 4"
+                (click)="onDeactivatePressed()" class="btn-demo list-button" nbButton status="danger">غیرفعال سازی</button>
+        <button *ngIf="teacher.Status.Id == 3 || teacher.Status.Id == 4"
+                (click)="onBanPressed()" class="btn-demo list-button" nbButton status="warning">تعلیق</button>
+
+    </div>
+</div>
